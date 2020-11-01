@@ -7,4 +7,12 @@ pipeline {
 			 20.2
 			 20.1''', description: '', name: delta_version)
    }
+
+   stages {
+     stage ("test") {
+        steps {
+	  sh " echo hello!!!"
+	}
+     }
+   }
 }
