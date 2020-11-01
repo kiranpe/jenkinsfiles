@@ -1,9 +1,10 @@
 pipeline {
    agent any
 
-   parameters {
-      choice(choices: ['20.4', '20.3', '20.2', '20.1'], description: '', name: 'delta_version')
-   }
+   properties([[$calss: 'ParameterDefinitionProperty', parameterDefinitions: [
+   [$class: 'ChoiceParameterDefinition', choices: ['20.4', '20.3', '20.2', '20.1'], description: '', name: 'delta_version'],
+   [$class: 'ChoiceParameterDefinition', choices: ['DIT', 'SIT', 'UAT', 'PreProd'], description: '', name: 'Target_Environment']
+   ]]])
 
    stages {
      stage ("test") {
